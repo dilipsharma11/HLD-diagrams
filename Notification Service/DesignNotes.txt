@@ -1,1 +1,20 @@
-Functional Requirements
+Functional Requirements:-
+1. Large scale notifications system like third party service
+2. No duplicate notifications
+
+Capacity Estimations:-
+1 billion users recieves 100 notifications per day
+thats 100 billion notifications per day
+1kb each notification
+100 TB per day
+
+APIs:-
+AddUserIds(UserId, Topic); // adds userid to a Topic
+publishNotification(Topic);
+fetchNotifications(UserId);
+
+Schema:-
+Users(userId, email, phone, webSocketConnect);
+Topic(id, name, userList)
+UnseenMessages(userId, message, timeStamp)
+
