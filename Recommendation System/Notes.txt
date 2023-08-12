@@ -12,4 +12,9 @@ GET /recommendations/{userId}
 
 Architecture:-
 Old way- give recommendation in batches
-New way- real time streaming recommendations
+Disadvantages:- everyday computing for every user. Some user may not come every day to the platform
+Thats unnecessary computation. Also users will have to wait 24 hrs for new recommendation so not good
+
+New way- real time streaming recommendations:-
+
+Uses ML- creates vector and finds similar vectors which are near
