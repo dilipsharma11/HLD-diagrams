@@ -1,0 +1,15 @@
+Functional Requiremenets:-
+Build recommendation system
+
+Non Functional Requirements:-
+
+Capacity Estimates:-
+1 billion users
+100 million new files being uploaded every day
+
+API design:-
+GET /recommendations/{userId}
+
+Architecture:-
+Old way- give recommendation in batches
+New way- real time streaming recommendations
