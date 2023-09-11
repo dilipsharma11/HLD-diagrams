@@ -1,0 +1,19 @@
+Functional Requirements
+1. Schedule the running of binaries on a dedicated set of cluster
+2. Instant and repeated scheduling
+3. Jobs has to run atleast once (Reliable)
+
+Capacity Estimates:-
+Binaries can be of size of a few mb 
+10,000 jobs per day
+
+API design:-
+POST scheduleJob(binary, scheduledTime)
+GET jobStatus(jobId)
+
+Database schema:-
+Job status table
+    - [jobId, binaryUrl, status, retryTimeStamp]
+
+Q. How to pick jobs?
+Ans. push it to the queue based on current time stamp. all the jobs before the current time stamp in the queue
