@@ -1,0 +1,30 @@
+Functional Requirements:-
+    1. Generate expiring unique short URLs from user provided URL.
+    2. Redirect users to the correct website upon clicking the short URL.
+    Optional) Logging clicks per url.
+
+Capacity Estimations:-
+    - 500 million urls per month
+    - 100:1 reads to Writes
+    - 500 bytes of storage per URL
+    - 200 writes per second
+    - 20k reads per second
+    - 15 tb of disk over 5 years
+    - 50 gb of cache per month - 20% high traffic data
+
+API:-
+    - POST createURL(longURL)
+    - GET getURL(shortURL) 
+
+Database schema:-
+    -Link table (shortURL, expirationDate, userId, longURL)
+
+Number of unique URLs logic:-
+    - url consists of a-z, A-Z, 0-9. 62 unique characters
+    - for a length of 4. number of urls will be 4^62 ~ 4.2 trillion
+
+Unique URL generation logic:-
+    -generate all 4.2 trillion keys and store in the database.
+    -mark them as used and unused
+
+DB choice- single leader replication DB like mongodb 
