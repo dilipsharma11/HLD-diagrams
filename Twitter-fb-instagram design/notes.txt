@@ -1,0 +1,17 @@
+Functional Requirements:-
+    1. Make posts with texts, videos and images
+    2. Follow other users
+    3. News feed that quickly loads new posts from followers
+
+Extended Requirements:-
+    1. Liking or replying to posts
+
+Capacity Estimations:-
+    - 200 million daily active users
+    - 100 million new posts every day 
+    - on avg each user follows 200 users
+    - 300 bytes per post 
+        - 30gb posts storage per day
+        - 55 tb disk storage for 5 years
+        - 180 gb of cache per month - 20% 
+        - 6 tb of cache per day if users home feed is cached on a seperate server
