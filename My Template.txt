@@ -1,0 +1,20 @@
+Functional Requirements:-
+
+Non Functional Requirements:-
+1. Highly Available
+2. Highly consistent
+3. Highly reliable (Fault tolerant)
+4. Highly Scalable
+
+
+Capacity Estimations:-
+1. Daily active users
+2. QPS / requests per day 
+3. total storage for x years
+
+APIs:-
+
+
+Db schema:-
+
+

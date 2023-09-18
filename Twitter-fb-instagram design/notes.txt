@@ -15,3 +15,12 @@ Capacity Estimations:-
         - 55 tb disk storage for 5 years
         - 180 gb of cache per month - 20% 
         - 6 tb of cache per day if users home feed is cached on a seperate server
+    
+APIs:-
+    1. createPost()
+    2. getPost() this can be via a push websocket
+
+Db schema:-
+    -postsTable(userId, content, metaData)
+    -userTable(userId, email, pw_hash)
+    -userFollowsTable(user1, user2) 
