@@ -1,0 +1,31 @@
+1. Traffic
+    -Daily Active Users (users = number of requests)
+        -read requests per day
+        - write requests per day
+    Convert both from per day to second
+        - read per sec = read per day/no of seconds in a day
+
+
+2. Storage
+    - Convert everything to bytes
+    - kilo : thousand    : 10^3
+    - mega : million     : 10^6
+    - giga : billion     : 10^9
+    - tera : trillion    : 10^12
+    - peta : quadrillion : 10^15
+
+    Calculate for per day then multiply for years
+
+3. Memory
+    - 80 to 20 ratio for caching from storage
+    - eg. 20% of 1 TB in cache
+
+4. Bonus:-
+    -Resource decision (How many servers needed to serve this load)
+    - formula = requests per second to handle/ no of requests a single server can handle
+    e.g if 1 request takes 0.5 second. in 1 second 2 requests can be served via a single core
+    if there are 8 cores then 16 requests per second a server can serve
+    - no of servers = 500/16 = 30 to 50 servers
+
+5. Media:-
+    - 1 hd image - 3mb
