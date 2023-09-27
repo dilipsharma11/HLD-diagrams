@@ -1,0 +1,29 @@
+Functional Requirements:-
+1. Upload and download files to cloud.
+2. Share files with other users.
+3. Reamtime push to other devices
+4. File consistency
+5. Keep track of older file versions
+6. Offline Editing
+
+Capacity Estimations:-
+    - Assumption - Files upto 1gb size
+    - Equal amount of read and writes
+    - Split files into 4mb chunks for faster upload and differencing
+    - 500 million total users. 100 million daily active users (20%)
+    - 200 files per user, 100 kb on average per file
+
+    Total storage 500 million x 200 x 100kb = 10PB
+
+APIs:-
+upload(userId, field, chunks)
+download(fileId, localChunks) returns chunk URLs not yet on local machine
+addUser(userId, field, permissioms)
+
+db schema:-
+Use mysql because we want high consistency and single leader replication for storing metadata
+    -Users(userId, email, passwordHash)
+    -Files(fileId, path)
+    -FileUsers(userId, fileId) which user has permission for which files
+    -FileVersionChunks(fileId, version, chunkHash)
+    -Chunks(chunkHash, s3URL, fileId) partition this table based on fileId due to data locality
