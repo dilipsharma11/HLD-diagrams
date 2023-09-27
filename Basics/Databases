@@ -26,3 +26,11 @@
     - index choice in partitioning
         - local indexes optimises the write speed
         - global indexes optimises the read speed
+
+6. NoSQL follows BASE (Basic Availability, Stateful, Eventual consistency)
+    - Key value (DynamoDB, Redis)
+        -e.g. DynamoDB, Redis. Can query only on keys. very fast
+    - document based
+        - e.g. MongoDb .In document based you can query based on value also but you cant query based on value in key value db like dynamoDB
+    - column based. For each key it has a list of column and values
+    - graph based

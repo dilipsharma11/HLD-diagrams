@@ -1,0 +1,23 @@
+www.domainName.com/api/endPointIdentifier?queryParam1=Dilip&queryParam2=[1,2,3]
+Body as json or multipart file
+params always decoded
+
+Interview Template:-
+1. Ask clarifying questions (Buisness and System Requirements)
+    -Who will be consuming the APIs. Scale? Users? Region? Payload?
+    -What part of the system are we targetting?
+    -What will be the QPS on this API?
+    -What functionalities to support
+
+2. Write api contract(Request and response)
+    -filters. e.g /api/items/state=active&seller_id=1234 (will filter and return only for these criterias)
+        - works on range as well using et, lte, gte operators
+        - advanced search query param if elastic search is used
+    -pagination
+        - GET /items?limit=20&offset=100. This query would return the 20 rows starting with the 100th row.
+    -sorting
+        - GET /users?sort_by=asc(email) and GET /users?sort_by=desc(email)
+
+
+
+3. Write main db entities and choices
