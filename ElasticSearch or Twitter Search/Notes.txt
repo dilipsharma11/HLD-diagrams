@@ -1,0 +1,19 @@
+Functional Requirements:-
+    -Query plain text documents based on a combination of terms that appear in them
+
+Capacity Esimates:-
+    -400 million tweets per day 
+    -300 bytes per tweet
+    -120gb of tweets per day 
+    -730 billion tweets per 5 years, 200 tb for 5 year
+    -40 bits = 5 bytes per tweet id 
+    -15 search terms per tweet 
+    -55 TB of storage in index for 5 years 
+
+No db schema. Thats what be building you idiot
+When building database. Remove noise from the documents. words like a, an, and, ing etc
+We can use apache lucene. It supports suffix, prefix and fuzzy search, Term frequency, Inverse term frequency etc 
+
+Always ask if it should be global or local index
+Here, local index is preferred because we are storing same documents in the same node. so faster retrieval. glocal index at this scale is not feasible 
+We can shared them completely random or by time 
