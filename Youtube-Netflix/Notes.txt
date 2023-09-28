@@ -1,0 +1,30 @@
+Functional Requirements:-
+    -Upload a video
+    -View a video
+    -Search videos by name
+    -Number of likes and views of video
+    -Comments on video
+
+Capacity Estimations:-
+    -1.5 billion total users
+    -800 million daily active users
+    -5 views per day by each user
+    -1:200 upload to view ratio
+    -assuming 500 hours of worth videos are being uploaded per minute
+    -50 mb per minute of mp4
+Calculations:-
+    -46k views per second
+    -230 uploads per second
+    -1500 gb/min
+    - 1500 gb/min getting uploaded every minute = 2.2 PB/day
+
+APIs:-
+    -Upload(userId, Name, chunks)
+    -FetchChunk(chunkId, encoding, resolution)
+    -Search(videoName)
+
+Db schema:-
+    -User(userId, email, passwordHash)
+    -Videos(videoId, name, timeStamp, views)
+    -VideoChunk(chunkId, videoId, s3Link)
+    -Comments(commentId, comment, videoId)
