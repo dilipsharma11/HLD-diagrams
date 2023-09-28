@@ -1,0 +1,17 @@
+Functional Requirements:-
+    1. Find popular suggested terms starting with prefix that user provided as input
+
+Capacity Estimates:-
+    -5 billion searches per day
+    -60k searches per second
+    -100 million unique terms
+    -3 words per term, 5 characters per word
+    -3GB to store all terms
+
+API:-
+    -fetch(userId, prefix)
+
+database:-
+    - we need very low latency so store in memory
+    - use trie in memory
+    - log new queries on disk everyday by some batch job spark jobs
