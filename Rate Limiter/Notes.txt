@@ -1,0 +1,25 @@
+Functional Requirements:-
+    -Limit an entity to a certain number of requests/api calls in a given amount of time
+    - e.g 1000 limit in 10 seconds
+
+Capacity Estimates:-
+    -1 million users
+    -8 bytes for userId
+    -4 byte for timeStamp
+    -4 byte counter
+    -Limit of 100 requests per user
+    -1 mil*(8+4+4) = 16mb if storing all request using a counter
+    -1 mil*(100 requests) *(8+4 bytes) per request = 1.2gb if storing every single request
+
+API:-
+    - rate_limit(userId, api_endpoint, timeStamp)
+
+No database:-
+    -everything in Memory
+
+Two types of rate limiter:-
+    - fixed window
+    - rolling window
+
+There could be a possible race condition here but since we are using redis here for in memory storage and redis is single thread so we are good
+Rate limit on both ip address and userId
