@@ -1,0 +1,10 @@
+Functional Requirement:-
+    -Make GET request on every possible web link available.
+
+Capacity Estimate:-
+    -15 billion websites
+    -100 kb per page
+
+Algorithm:-
+Do BFS but use messaging queue in place of queue.
+Query on DNS and get IP address of a server. GET HTML parse it.
