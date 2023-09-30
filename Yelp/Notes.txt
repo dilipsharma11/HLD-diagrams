@@ -1,0 +1,24 @@
+Yelp- a local restaurant or anything recommendation system
+(It is more like a search based system)
+
+Funcrional Requirements:-
+    -Add places, and review then
+    -Query for nearby establishments
+
+Capacity Estimates:-
+    -500 million places, 100k queries/second
+    -4 byte establishments/geohash
+    -500 million * 8 bytes= 4gb
+
+API design:-
+    -add_review(location_id, user_id, stars, text)
+    -add_location(lat, long, description, category)
+    -search(lat,long, radius, queryTerms)
+
+Database schema:-
+    -User(user_id, email, pw_hash)
+    -Location(loc_id, lat, lng, name, desc, category)
+    -Review(user_id, loc_id, stars, text)
+
+read about geo hash/ quadtree from the video.
+query on both location and search term 
