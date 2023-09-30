@@ -1,0 +1,23 @@
+Functional Requirements:-
+    -Show nearby cars to potential riders, and keep their location up to distance
+    -Once matched, driver and rider should be able to see each others updated location
+    -Optimal route calculation in low latency with both time and distance numbers
+
+Capacity Estimates:-
+    -Push location changes every 3 seconds.
+    -1 million daily active users, 500k daily active drivers
+    ~20 bytes of data to store per rider/driver in geospatial index.
+    -1.5 million x 20 bytes = 30mb
+
+API design:-
+    -Search(lat, long, radius) returns drivers 
+    -Match(userId, nearbyDriverIds)
+    -GetRoute(startLatlong, endLatLong)
+
+Database schema-
+    -User(id, email, pw_hash)
+    -Drivers(id, email, pw_hash, in_ride)
+    -Rides/Trips(user_id, driver_id, route, time)
+
+Store geospatial index in memory redis because even if it is lost it is not end of the world. the drivers will reconnect and it will be stored
+Use djikstra to calulcate the shortest path between two locations.
