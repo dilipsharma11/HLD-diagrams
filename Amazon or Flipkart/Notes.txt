@@ -1,0 +1,22 @@
+Functional Requirements:-
+    -Quickly search for products based on text
+    -Complete an order with a given list of products
+    -Deal with concurrent cart updates
+
+Capacity Estimates:-
+    -1 billion users around the globe
+    -100 million products, 1kb per product = 100GB
+    -100 million orders per day 
+
+API design:-
+    -searchProducts(queryString)
+    -addToCart(userId, productId)
+    -placeOrder(userId, productIdList)
+
+DB schema- 
+    -Accounts(email, pw_hash, address)
+    -Cart(accountId, productSet)
+    -Products(id, name, metadata)
+    -Orders(acctId, productIds, price)
+
+Search algorithm/logic from the video
