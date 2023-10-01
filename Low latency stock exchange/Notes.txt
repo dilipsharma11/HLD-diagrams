@@ -1,0 +1,12 @@
+Functional Requirements:-
+    -Buy and sell stocks at low latency according to limit order book.
+    -cancel open orders, get volume of open orders at limit price
+
+Capacity Estimates:-   
+    -100k messages per second at peak
+    -On average 20 bytes per messages
+    -On average around 20gb/day
+
+Watch algorithm in video
+
+Everything is in memory here
