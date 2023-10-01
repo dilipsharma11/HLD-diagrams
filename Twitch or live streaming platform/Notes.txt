@@ -1,0 +1,16 @@
+Functional Requirements:-
+    -Stream live video to global audiences.
+    -No buffering or jitter during bad connections
+
+Capacity Esimtates:-
+    -100 million total daily active users
+    -Upto 1 million concurrent viewers per Stream
+
+API design:-
+    -start_stream(userId, name)
+    -watch_stream(streamId)
+
+DB schema:-
+    -Users(id, email, pw_hash)
+    -VideoMetaData(id, s4_url, streamerId)
+
