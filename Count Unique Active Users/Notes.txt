@@ -1,0 +1,13 @@
+Functional Requirements:-
+    -Count number of unique website users. Both live and historical numbers
+
+Capacity Estimates:-
+    -Upto 1 billion unique users
+    -Upto 10 devices per user
+
+API design:-
+    -GetNumUsers(timeStamp - default to now)
+
+Database schema:-
+    -UserStatus[deviceId, userId, onlineStatus]
+    -ActiveUserCounts[timeStamp, count]
