@@ -1,0 +1,14 @@
+Functional Requirements:-
+    -Build a distributed lock to support cases like exclusive file modification
+    or de-deuplication of compute workloads.
+
+Capacity Estimates:-
+    -1000 machines trying to grab the lock at once
+
+API design:-
+    -Grab_lock()
+    -Release_lock(fencing_token)
+    -Do_external_operation(fencing_token)
+
+DB schema:-
+    -
