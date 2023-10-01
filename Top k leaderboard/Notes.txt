@@ -1,0 +1,29 @@
+Functional Requirements:-
+    -Measure the top K events of any type
+
+Non functional Requirements:-
+    -High throughput
+
+Capacity Estimates:-
+    - k<1000
+    - 1 billion relevant updates per day
+
+API spec:-
+    -getTopK(startTime, endTime, k)
+
+
+If we only needed 1 leaderboard for all time (it'd be easy ): 
+1. every event goes in a log-based msg broker
+2. We pull this data in a stream processing framework - partition this on the ID of the event 
+3. Each node has a k-sized minHeap.
+4. At intervals, we just batch & merge  all these different nodes together
+
+But doing this batch computation - we lose flexibility of real-time data.
+Naive solution: Use time-series DB.
+But here too, we would have to do all the work in the read path - and this is what we want to avoid.
+
+We can relax one requirement - approximate count vs fixed count> 
+The perfect way to do it would mean having all COUNTS data on 1 Server - impossible to keep it in memory though.
+(11:50) This is where Count-min-sketch comes in 
+
+15:50 - Diagram of lamda architecture
