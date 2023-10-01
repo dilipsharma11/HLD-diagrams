@@ -1,0 +1,9 @@
+Functional Requirements:-
+    -Build a distributed, reliable, fault tolearant message broker
+
+Capacity Estimates:-
+    -millions of messages per minute
+    -Hundreds if bytes per message
+
+API design:-
+    -PublishMessage(userId, msg)
