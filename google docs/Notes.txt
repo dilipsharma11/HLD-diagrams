@@ -1,0 +1,18 @@
+Functional Requirements:-
+    -Edit text documents, support concurrent editing(both online and offline)
+    -All clients eventually see the same version of the document
+
+Capacity Estimates:-
+    -1 billion documents per day
+    -1 kb per document on average
+    -1 TB of storage per day
+
+API design:-
+    -FetchDocument(docId)
+    -InsertChar(docId, position, char) -websocket
+
+DB schema:-
+    -users(userId, name)
+    -documents() -nosql
+
+Watch the algorithm from video
