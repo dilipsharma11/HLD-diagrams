@@ -1,0 +1,19 @@
+Functional Requirements:-
+    -Realtime video and audio chat over the internet
+    -Group chats
+    -Server side chat recording
+
+Capacity Estimates:-
+    -1 billion users
+    -upto 100 people per video chat
+    -100 mb*100,000 = 10tb of video per day
+
+APIs:-
+    -intitateCall(userIdList)
+
+Db schema:-
+    -Users(id, email, pw_hash)
+    -Recordings(id, s3_url) - could be split to chunks
+    -RecordingAccess(userId, recordingId)
+
+    All sql
