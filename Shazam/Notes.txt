@@ -1,0 +1,13 @@
+Functional Requirements:-
+    -Return most likely song played based on audio input from cellphone
+
+Capacity Estimates:-
+    -100 million songs
+    -3k fingerprints per song, 64 bits Each
+
+API design:-
+    -GetSuggestedSong(songRecording)
+
+DB schema:-
+    -SongSearchIndex(songDataChunk, songId)
+    -SongDB(songID, songDataChunks)
