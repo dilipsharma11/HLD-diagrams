@@ -1,0 +1,16 @@
+Functional Requirements:-
+    -Allow rapid publishing of logs and metrics from both clients and internal
+    servers to eventually be viewed by employees.
+    Persist data for more exploration down the line
+
+Capacity Estimates:-
+    -1 billion messages per day
+    -100 bytes on average per log/metrics
+    -100GB of data per day
+
+API endpoints:-
+    -sendMetric(source, payload, timeStamp)
+    -fetchDataset(seriesId, timeRange)
+
+DB schema:-
+    -video. we are not clear what type of data we will be storing
