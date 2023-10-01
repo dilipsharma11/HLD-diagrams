@@ -1,0 +1,25 @@
+Functional Requirements:-
+    -City ->Movie ->Theatre ->Time -> Seats
+    -If number of seats are available, reserve them for the user until they are booked.
+     If seats reserved but not booked, allow users to enter a FIFO waitlist in case they become free
+    
+    Capacity Estimates:-
+        -5000 cities, 10 theatre per City
+        -2000 seats per theater, 2 shoes per day
+        -50 bytes per row of booking data
+        -500*10*2000*2*50 bytes = 1gb/day
+
+API design:-
+    -getCities()
+    -getMovies(cityId)
+    -getTheatres(cityId, movieId)
+    -bookSeats(showId, seatIds)
+
+Database schema:-
+    -Cities(id, name)
+    -Movies(id, name, cityId)
+    -Theatres(id, name, address, cityId)
+    -MovieShow(movieId, TheatreId, time)
+    -MovieSeats(id, showId, name, status)
+
+shard on showId
