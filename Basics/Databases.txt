@@ -3,6 +3,14 @@
     Internally stored as B-tree. log(n). self balancing binary tree
     - disadvantage :- during writes has to create entry on index file as well.
 
+    types of indexes:- 
+        -hash index - works good in memory, bad on disk. needs write ahead log. no range queries
+        -b-tree- on disk, supports range query, self balancing binary tree 
+        -2d index(r-tree)- geospatial data
+        -LSM tree - self balancing tree(AVL, red black)- In memory, no durability. needs write ahead log. 
+            creates a SS table on disk for reads. write on tree. read on disk
+            LSM trees can be optimised by creating a sparse index on ss tables for reads and also using bloom filters
+
 2. Replica Set:-
     - Writes only on master node
     - Reads from any master or slave
@@ -74,3 +82,9 @@
     -influxDB
         -time series db. useful for ingestion based on running stream time.
      
+Handling eventual consistency:-
+    -make same user read from same db if they made a write for lets say 10 mins
+    -keep write time stamps common and see if they have the latest write 
+
+Handling conflicting writes on replica:-
+    -
