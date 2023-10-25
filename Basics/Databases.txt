@@ -1,6 +1,5 @@
 1. Indexes:-
-    - creates an index file on a column keeps in sorted order log(n) time map to the actual entry. Indexes can be of various types - dense, sparse, geospatial. 
-    Internally stored as B-tree. log(n). self balancing binary tree
+    - creates an index file on a column keeps in sorted order log(n) time map to the actual entry on disk. 
     - disadvantage :- during writes has to create entry on index file as well.
 
     types of indexes:- 
@@ -88,3 +87,7 @@ Handling eventual consistency:-
 
 Handling conflicting writes on replica:-
     -
+
+SQL vs NOSql
+    -NoSql are self contained. Hence no join. Suppose an author is stored for every book document and the author name changes. Will have to update everything. If it would have been sql. just update the author in author table and inner join
+    -NoSql is easier to shard since everything is self contained. Sql bad in horizontal scaling due to read joins on different partitions, distributed transactions, two phase locking is very slow etc 
