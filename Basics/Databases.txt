@@ -44,7 +44,7 @@
 
 7. When to choose which database?
     -Indexes type
-    -Replication- 
+    -Replication Of leader- 
         -Single - write on one node, read from any. Ensures no write conflicts but costs low write throughput
         -multi - wrtie on a small subset of leader databases. Writes can from any databases. more write throughput at the cost of potential write conflicts
         -leaderless - writes go to all databases, reads come from all databases- more write throughput at the cost of potential write conflicts
@@ -64,13 +64,14 @@
         -B trees and transactions supported
         -similar to sql but more flexibility with data model. prefer sql in interviews unless we dont know the structure and need flexibitlity
     -Cassandra
+    - ring of nodes. consistent hashing. gossip protocol
         -Wide column data store, has a shard key and a sort key
             -Allows for flexible schemas, ease of partitioning
-        -MultiLeader/Single leader/Leaderless replication (configurable)
+        -Leaderless replication (configurable)
             -Super fast writes, albeit uses last write wins for conflict resolution
             -May clobber existing writes if they were not the winner of LWW.
         -Index based off of LSM tree and SSTables. Fast Writes
-        -Conclusion: Great for applications with high wrote volume, consitency is not as important, all writes 
+        -Conclusion: Great for applications with high write volume, consitency is not as important, all writes 
              and reads go the same shard (no transactions)
     -Redis
         -Key Features:-
@@ -80,6 +81,11 @@
         -graph db 
     -influxDB
         -time series db. useful for ingestion based on running stream time.
+    -hbase
+        -modelled same on google bigtable
+        -column wide database but very different than cassandra.
+        - cassandra is good for real time transactions processing db. super fast writes due to eventual consistency 
+        -hbase is really good for running huge/batch streaming processes on. Also capable of fast reads and writes 
      
 Handling eventual consistency:-
     -make same user read from same db if they made a write for lets say 10 mins
@@ -91,3 +97,13 @@ Handling conflicting writes on replica:-
 SQL vs NOSql
     -NoSql are self contained. Hence no join. Suppose an author is stored for every book document and the author name changes. Will have to update everything. If it would have been sql. just update the author in author table and inner join
     -NoSql is easier to shard since everything is self contained. Sql bad in horizontal scaling due to read joins on different partitions, distributed transactions, two phase locking is very slow etc 
+
+Fencing token:-
+    -An increasing number to resolve the conflicts.
+
+How to have strong consistency?
+Solutions:-
+    1. Read from leader always but this is not optimal due to the load
+    2. Sync. Write to leader. Write to its replica with a sync ID. Now whenever we reading from any replica get the sync ID from the centralised log and should read only afterwards that sync id from the replica node.
+
+Coordination service is opposite of gossip protocol
