@@ -6,3 +6,18 @@ Consumers:-
         -Flink is realtime
         -Also they can be handled with code what kind of join and how to consume
         -How flink ensures that each message is processed at least and also exactly once? It uses a job manager which checkpoints the current state in s3URL
+
+kafka vs rabbitmq:-
+    -kafka 
+        -pub sub model
+        -log based
+        -pull model
+        -1 to many
+        -good for big data scales well by adding more brokers
+    -rabbitmq
+        -amqp 
+        -in memory
+        -push model
+        -1 to 1
+
+
