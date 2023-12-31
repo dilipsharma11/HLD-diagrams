@@ -9,6 +9,7 @@
         -LSM tree - self balancing tree(AVL, red black)- In memory, no durability. needs write ahead log. 
             creates a SS table on disk for reads. write on tree. read on disk
             LSM trees can be optimised by creating a sparse index on ss tables for reads and also using bloom filters
+        -search index - created on top of search data like google web pages records e.g. lucene(lsm tree + SSTables)
 
 2. Replica Set:-
     - Writes only on master node
@@ -75,8 +76,9 @@
              and reads go the same shard (no transactions)
     -Redis
         -Key Features:-
-            -Key value stores implemented in memory (uses hashmap under the hood)
+            -Key value stores implemented in memory (uses hashmap under the hood). in value can store maps, sets, list, strings etc. (have built in atomic data type)
             -use for cache
+            -single leader replication with automatic fail over
     -Neo4j
         -graph db 
     -influxDB
@@ -107,3 +109,14 @@ Solutions:-
     2. Sync. Write to leader. Write to its replica with a sync ID. Now whenever we reading from any replica get the sync ID from the centralised log and should read only afterwards that sync id from the replica node.
 
 Coordination service is opposite of gossip protocol
+
+Cache:-
+    -Very much similar to databases just they store data only in key,value pairs and in RAM.
+    -They also follow Replication, partitioning, Coordination service for cluster management.
+    -Cache can sit on any server depending upon the use case but usually we have a seperate cluster of nodes just for cache in a distributed manner.
+
+CDN:- 
+    -cache for static content placed at geographically near locations.
+    -push based:- the CDN pushes data to the client like new york time front page every day to all the users in US is pushed from US CDN.
+    -pull based:- a new video by disha patani will put it in CDN for india since everybody is requesting it. After sometime remove it and put something new trending
+

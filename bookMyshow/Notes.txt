@@ -5,9 +5,9 @@ Functional Requirements:-
     
     Capacity Estimates:-
         -5000 cities, 10 theatre per City
-        -2000 seats per theater, 2 shoes per day
+        -2000 seats per theater, 2 shows per day
         -50 bytes per row of booking data
-        -500*10*2000*2*50 bytes = 1gb/day
+        -5000*10*2000*2*50 bytes = 1gb/day
 
 API design:-
     -getCities()

@@ -6,6 +6,7 @@ Consumers:-
         -Flink is realtime
         -Also they can be handled with code what kind of join and how to consume
         -How flink ensures that each message is processed at least and also exactly once? It uses a job manager which checkpoints the current state in s3URL
+        -Flink makes developers life easier by parallelizing makes it faster
 
 kafka vs rabbitmq:-
     -kafka 
